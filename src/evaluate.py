@@ -13,7 +13,7 @@ def evaluate():
     cm = confusion_matrix(y, y_pred)
     print("Confusion matrix:\n", cm)
 
-    plt.figure(figsize=(5,4))
+    plt.figure(figsize=(8,6))
     sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
     plt.xlabel("Predicted"); plt.ylabel("Actual")
     plt.title("Confusion Matrix (Random Forest)")
