@@ -33,7 +33,23 @@ def train_models():
     print(classification_report(y_test, y_pred_rf))
     joblib.dump(rf, "models/random_forest.joblib")
 
-    # Save test predictions
+    import matplotlib.pyplot as plt
+import numpy as np
+
+importances = rf.feature_importances_
+features = ["rsi", "sma10", "sma20", "macd", "volatility"]
+
+plt.figure(figsize=(8,5))
+plt.bar(features, importances, color="purple")
+plt.title("Feature Importance (Random Forest)", fontsize=16)
+plt.xlabel("Feature")
+plt.ylabel("Importance")
+plt.tight_layout()
+plt.savefig("plots/feature_importance.png")
+plt.show()
+
+
+   # Save test predictions
     test_df = X_test.copy()
     test_df["actual"] = y_test
     test_df["pred_lr"] = y_pred_lr
