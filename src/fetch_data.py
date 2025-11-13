@@ -4,7 +4,7 @@ import os
 
 os.makedirs("data", exist_ok=True)
 
-def fetch_stock_data(ticker="TCS.NS", start="2015-01-01", end="2025-10-31"):
+def fetch_stock_data(ticker="TRENT.NS", start="2025-01-01", end="2025-10-31"):
     print(f"Fetching data for {ticker} from {start} to {end} ...")
     data = yf.download(ticker, start=start, end=end, auto_adjust=True)
     if "Close" in data.columns:
