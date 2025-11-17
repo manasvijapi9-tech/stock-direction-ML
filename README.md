@@ -51,13 +51,15 @@ The workflow demonstrates competency in:
 ## 3. Visual Results
 
 ### Confusion Matrix
-<img src="plots/confusion_matrix.png" width="450">
+<img width="700" height="600" alt="confusion_matrix" src="https://github.com/user-attachments/assets/522529d3-4b81-4c90-8547-042bb136baff" />
 
 ### Prediction Probability Distribution
-<img src="plots/probability_distribution.png" width="450">
+<img width="800" height="500" alt="probability_distribution" src="https://github.com/user-attachments/assets/8a542a29-861f-4510-b4fb-b6e13832d4f3" />
+
 
 ### Feature Importance (Random Forest)
-<img src="plots/feature_importance.png" width="450">
+<img width="800" height="500" alt="feature_importance" src="https://github.com/user-attachments/assets/fa0775ee-b7b6-41b8-84cb-392484f65901" />
+
 
 ---
 
