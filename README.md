@@ -3,7 +3,7 @@
 An end-to-end machine learning pipeline that predicts next-day stock direction (up or down) using technical indicators and supervised learning models.  
 The project demonstrates practical data science skills through structured preprocessing, feature engineering, model training, evaluation, and visualization.
 
-[![Open In Colab](https://colab.research.google.com/drive/1NgjGEweKZxWBsfLxaVLWS63ZxTrHAK6x?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/drive/1NgjGEweKZxWBsfLxaVLWS63ZxTrHAK6x#scrollTo=SzVT9-WWiwE3)
 
 ---
 
