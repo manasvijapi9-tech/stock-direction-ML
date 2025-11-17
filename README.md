@@ -35,16 +35,24 @@ Feature Importance
 !pip install -r requirements.txt
 1️⃣ Fetch Data
 !python src/fetch_data.py
+
+
 2️⃣ Clean Data
 import pandas as pd
 df = pd.read_csv("data/TCS_NS_raw.csv")
 df["close"] = pd.to_numeric(df["close"], errors="coerce")
 df.dropna(inplace=True)
 df.to_csv("data/TCS_NS_raw_clean.csv", index=False)
+
+
 4️⃣ Prepare Dataset
 !python src/prepare_data.py
+
+
 5️⃣ Train Models
 !python src/train_model.py
+
+
 6️⃣ Evaluate
 !python src/evaluate.py
 Your plots appear in:
