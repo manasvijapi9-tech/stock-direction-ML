@@ -61,67 +61,43 @@ The project demonstrates:
 ## 3. Key Results
 
 ### Confusion Matrix
-<img src="plots/confusion_matrix.png" width="420">
+<img width="600" height="500" alt="confusion_matrix trent" src="https://github.com/user-attachments/assets/d1212082-8fcf-4430-b348-94cb50b27e44" />
+
 
 ### Prediction Probability Distribution
-<img src="plots/probability_distribution.png" width="420">
+<img width="800" height="500" alt="probability_distribution trent" src="https://github.com/user-attachments/assets/6d92cd66-165b-41bb-8a43-cb5288021c57" />
+
 
 ### Feature Importance (Random Forest)
-<img src="plots/feature_importance.png" width="420">
+<img width="800" height="600" alt="feature_importance trent" src="https://github.com/user-attachments/assets/24ffafb3-5ce8-4033-a27e-96e70ac97365" />
+
 
 ---
 
-## 4. How to Run the Project in Google Colab
+## ▶️ How to Run This Project (Google Colab)
 
-Clone the repository and install dependencies:
-
-```bash
+```python
 !git clone https://github.com/manasvijapi9-tech/stock-direction-ML.git
 %cd stock-direction-ML
-!pip install -r requirements.txt
-```
 
-### Step 1 — Fetch TRENT Data
-```bash
+# 1. Fetch TRENT data
 !python src/fetch_data.py
-```
 
-### Step 2 — Clean the Raw Data
-```python
-import pandas as pd
+# 2. Clean data
+!python src/clean_data.py
 
-df = pd.read_csv("data/TRENT_NS_raw.csv")
-df["close"] = pd.to_numeric(df["close"], errors="coerce")
-df.dropna(inplace=True)
-df.to_csv("data/TRENT_NS_raw_clean.csv", index=False)
-```
+# 3. Create indicators
+!python src/add_indicators.py
 
-### Step 3 — Compute Technical Indicators
-```python
-from src.indicators import add_all_indicators
-import pandas as pd
-
-df = pd.read_csv("data/TRENT_NS_raw_clean.csv")
-df2 = add_all_indicators(df)
-df2.to_csv("data/data_with_indicators.csv", index=False)
-```
-
-### Step 4 — Prepare ML Dataset
-```bash
+# 4. Prepare datasets
 !python src/prepare_data.py
-```
 
-### Step 5 — Train the Models
-```bash
+# 5. Train models
 !python src/train_model.py
-```
 
-### Step 6 — Evaluate Model Performance
-```bash
+# 6. Evaluate performance
 !python src/evaluate.py
 ```
-
-All resulting plots will be saved in the **plots/** directory.
 
 ---
 
