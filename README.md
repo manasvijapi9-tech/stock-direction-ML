@@ -3,7 +3,7 @@
 An end-to-end machine learning pipeline that predicts next-day stock direction (up or down) using technical indicators and supervised learning models.  
 The project demonstrates practical data science skills through structured preprocessing, feature engineering, model training, evaluation, and visualization.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/manasvijapi9-tech/stock-direction-ML/blob/main/stock_direction_pipeline.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1DJpfRFVMSgv8Bu2YUDOgoGNaWbM3Fnb8#scrollTo=23L6dG3M5ulu)
 
 
 ## 1. Project Overview
