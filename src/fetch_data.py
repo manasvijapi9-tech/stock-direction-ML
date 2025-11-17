@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 def fetch_data(ticker="TRENT.NS",
-               start_date="2015-01-01",
+               start_date="2025-01-01",
                end_date="2025-10-31"):
     
     os.makedirs("data", exist_ok=True)
@@ -15,11 +15,10 @@ def fetch_data(ticker="TRENT.NS",
     if data.empty:
         raise ValueError("No data fetched. Check the ticker or date range.")
 
-    # Standardize column names
     data.reset_index(inplace=True)
     data.columns = [col.lower().replace(" ", "_") for col in data.columns]
 
-    output_path = f"data/{ticker.replace('.','_')}_raw.csv"
+    output_path = f"data/{ticker.replace('.', '_')}_raw.csv"
     data.to_csv(output_path, index=False)
 
     print(f"Saved: {output_path}")
