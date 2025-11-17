@@ -4,7 +4,7 @@ This project develops a complete machine learning pipeline to predict the next-d
 
 The workflow demonstrates practical data science and financial modeling skills: data acquisition, preprocessing, feature engineering, model development, evaluation, and interpretation.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/manasvijapi9-tech/stock-direction-ML/blob/main/stock_direction_pipeline.ipynb)
+https://colab.research.google.com/drive/1DJpfRFVMSgv8Bu2YUDOgoGNaWbM3Fnb8#scrollTo=23L6dG3M5ulu
 
 ---
 
