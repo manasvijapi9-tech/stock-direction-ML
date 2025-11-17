@@ -5,7 +5,6 @@ The project demonstrates practical data science skills through structured prepro
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/manasvijapi9-tech/stock-direction-ML/blob/main/stock_direction_pipeline.ipynb)
 
----
 
 ## 1. Project Overview
 
