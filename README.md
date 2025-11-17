@@ -1,70 +1,79 @@
-# Stock Direction Prediction using Machine Learning
+# Stock Direction Prediction for TRENT (TRENT.NS)
 
-An end-to-end machine learning pipeline that predicts next-day stock direction (up or down) using technical indicators and supervised learning models.  
-The project demonstrates practical data science skills through structured preprocessing, feature engineering, model training, evaluation, and visualization.
+This project develops a complete machine learning pipeline to predict the next-day price direction (up or down) of **TRENT (TRENT.NS)** using technical indicators and supervised classification models.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1DJpfRFVMSgv8Bu2YUDOgoGNaWbM3Fnb8#scrollTo=23L6dG3M5ulu)
+The workflow demonstrates practical data science and financial modeling skills: data acquisition, preprocessing, feature engineering, model development, evaluation, and interpretation.
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/manasvijapi9-tech/stock-direction-ML/blob/main/stock_direction_pipeline.ipynb)
+
+---
 
 ## 1. Project Overview
 
-This project predicts whether a stock’s closing price will increase the following day.  
-It incorporates technical analysis signals and applies machine learning techniques for binary classification.
+The goal of this project is to forecast whether TRENT’s closing price will move upward the following day.  
+The pipeline collects historical market data, computes technical indicators, prepares a machine learning dataset, trains classification models, and evaluates predictive performance.
 
-The workflow demonstrates competency in:
+The project demonstrates:
 
-- Financial data preprocessing  
-- Technical indicator computation  
-- Feature and target engineering  
-- Model development (Logistic Regression, Random Forest)  
-- Model evaluation and interpretation  
-- Modular, production-style Python code
+- Handling financial time-series data
+- Engineering technical indicators
+- Constructing supervised learning targets from price data
+- Comparing Logistic Regression and Random Forest models
+- Evaluating model performance and reliability
+- Interpreting feature importance for TRENT’s price behavior
+- Building modular, production-style Python code
 
 ---
 
-## 2. Project Pipeline
+## 2. Workflow Summary
 
-1. **Data Fetching**  
-   Historical price data is pulled from Yahoo Finance.
+1. **Data Acquisition**  
+   Historical price data for TRENT (TRENT.NS) is fetched directly from Yahoo Finance.
 
 2. **Data Cleaning**  
-   Handles numeric inconsistencies and invalid rows.
+   Price data is standardized, numerical columns are fixed, and invalid rows are removed.
 
 3. **Feature Engineering**  
-   Computes indicators such as RSI, SMA10, SMA20, MACD, and volatility.
+   Technical indicators computed:
+   - RSI  
+   - SMA10  
+   - SMA20  
+   - MACD  
+   - Historical volatility  
 
-4. **Dataset Preparation**  
-   Creates supervised ML labels (up/down), feature matrix (X), and target vector (y).
+4. **Dataset Construction**  
+   - Features (**X**) are built from indicators  
+   - Target (**y**) marks whether the next day’s close is higher than the current day's  
+   - Final dataset is saved for modeling
 
 5. **Model Training**  
-   Trains Logistic Regression and Random Forest classifiers.
+   - Logistic Regression  
+   - Random Forest Classifier  
+   Both models are trained and evaluated on TRENT’s historical data.
 
-6. **Evaluation**  
-   Generates a confusion matrix, probability distribution, and classification metrics.
-
-7. **Interpretation**  
-   Produces a feature importance plot to illustrate which technical signals matter most.
+6. **Evaluation & Interpretation**  
+   - Confusion matrix  
+   - Prediction probability distribution  
+   - Random Forest feature importance plot  
 
 ---
 
-## 3. Visual Results
+## 3. Key Results
 
 ### Confusion Matrix
-<img width="700" height="600" alt="confusion_matrix" src="https://github.com/user-attachments/assets/522529d3-4b81-4c90-8547-042bb136baff" />
+<img src="plots/confusion_matrix.png" width="420">
 
 ### Prediction Probability Distribution
-<img width="800" height="500" alt="probability_distribution" src="https://github.com/user-attachments/assets/8a542a29-861f-4510-b4fb-b6e13832d4f3" />
-
+<img src="plots/probability_distribution.png" width="420">
 
 ### Feature Importance (Random Forest)
-<img width="800" height="500" alt="feature_importance" src="https://github.com/user-attachments/assets/fa0775ee-b7b6-41b8-84cb-392484f65901" />
-
+<img src="plots/feature_importance.png" width="420">
 
 ---
 
-## 4. How to Run (Google Colab)
+## 4. How to Run the Project in Google Colab
 
-Clone the repository:
+Clone the repository and install dependencies:
 
 ```bash
 !git clone https://github.com/manasvijapi9-tech/stock-direction-ML.git
@@ -72,26 +81,27 @@ Clone the repository:
 !pip install -r requirements.txt
 ```
 
-### Step 1 — Fetch Raw Data
+### Step 1 — Fetch TRENT Data
 ```bash
 !python src/fetch_data.py
 ```
 
-### Step 2 — Clean the Data
+### Step 2 — Clean the Raw Data
 ```python
 import pandas as pd
-df = pd.read_csv("data/TCS_NS_raw.csv")
+
+df = pd.read_csv("data/TRENT_NS_raw.csv")
 df["close"] = pd.to_numeric(df["close"], errors="coerce")
 df.dropna(inplace=True)
-df.to_csv("data/TCS_NS_raw_clean.csv", index=False)
+df.to_csv("data/TRENT_NS_raw_clean.csv", index=False)
 ```
 
-### Step 3 — Add Technical Indicators
+### Step 3 — Compute Technical Indicators
 ```python
 from src.indicators import add_all_indicators
 import pandas as pd
 
-df = pd.read_csv("data/TCS_NS_raw_clean.csv")
+df = pd.read_csv("data/TRENT_NS_raw_clean.csv")
 df2 = add_all_indicators(df)
 df2.to_csv("data/data_with_indicators.csv", index=False)
 ```
@@ -106,24 +116,23 @@ df2.to_csv("data/data_with_indicators.csv", index=False)
 !python src/train_model.py
 ```
 
-### Step 6 — Evaluate the Models
+### Step 6 — Evaluate Model Performance
 ```bash
 !python src/evaluate.py
 ```
 
-Plots generated will be saved in the `plots/` directory.
+All resulting plots will be saved in the **plots/** directory.
 
 ---
 
 ## 5. Key Learnings
 
-- Construction of an end-to-end ML pipeline  
-- Handling time-series financial data correctly  
-- Designing binary labels for predictive modeling  
-- Training and comparing classification models  
-- Evaluating performance using appropriate visual tools  
-- Identifying informative technical indicators  
-- Maintaining clean and modular project structure  
+- Building full ML pipelines around real financial data  
+- Best practices for time-series preprocessing  
+- Constructing supervised learning labels for market forecasting  
+- Comparing linear vs ensemble classifiers  
+- Interpreting feature importance for TRENT’s technical indicators  
+- Designing modular, maintainable project architecture  
 
 ---
 
@@ -133,8 +142,8 @@ Plots generated will be saved in the `plots/` directory.
 stock-direction-ML/
 │
 ├── data/                   # Raw, cleaned, and engineered datasets
-├── models/                 # Saved logistic & random forest models
-├── plots/                  # Confusion matrix, feature importance, probability plot
+├── models/                 # Trained Logistic Regression and Random Forest models
+├── plots/                  # Evaluation and interpretation visuals
 ├── src/                    # Modular pipeline scripts
 │   ├── fetch_data.py
 │   ├── indicators.py
@@ -142,7 +151,7 @@ stock-direction-ML/
 │   ├── train_model.py
 │   └── evaluate.py
 │
-├── stock_direction_pipeline.ipynb   # Complete Colab notebook
+├── stock_direction_pipeline.ipynb   # Complete Colab workflow
 ├── requirements.txt
 └── README.md
 ```
@@ -152,8 +161,6 @@ stock-direction-ML/
 ## 7. Author
 
 **Manasvi Japi**  
-Aspiring Data Scientist and Quantitative Finance Student  
-Focused on applied machine learning and financial modeling.
-
+Student interested in Data Science, Quantitative Finance, and Applied Machine Learning.
 
 
