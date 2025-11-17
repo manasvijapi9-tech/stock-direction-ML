@@ -75,42 +75,58 @@ The project demonstrates:
 ---
 
 ## ▶️ How to Run This Project (Google Colab)
-
+# ----------------------------------
+# 1️⃣ Clone the repository
+# ----------------------------------
 %cd /content
 !rm -rf stock-direction-ML
 !git clone https://github.com/manasvijapi9-tech/stock-direction-ML.git
 %cd stock-direction-ML
 
-
-# 1. Fetch TRENT data
+# ----------------------------------
+# 2️⃣ Fetch TRENT data
+# ----------------------------------
 !python src/fetch_data.py
 
-# 2. Clean data
+# ----------------------------------
+# 3️⃣ Check raw TRENT columns
+# ----------------------------------
 import pandas as pd
 df = pd.read_csv("data/TRENT_NS_raw.csv")
-df.columns
+print(df.columns)
 
-# 3. Read 
+# ----------------------------------
+# 4️⃣ Read cleaned TRENT dataset
+# ----------------------------------
 df = pd.read_csv("data/TRENT_NS_raw_clean.csv")
 df.head()
 
-# 4. Create indicators
+# ----------------------------------
+# 5️⃣ Generate technical indicators
+# ----------------------------------
 from src.indicators import add_all_indicators
 import pandas as pd
 
 df = pd.read_csv("data/TRENT_NS_raw_clean.csv")
 df2 = add_all_indicators(df)
 df2.to_csv("data/data_with_indicators.csv", index=False)
+print("Indicators saved → data/data_with_indicators.csv")
 
-# 5. Prepare data
+# ----------------------------------
+# 6️⃣ Prepare ML datasets
+# ----------------------------------
 !python src/prepare_data.py
 
-# 6. Train models
+# ----------------------------------
+# 7️⃣ Train ML models
+# ----------------------------------
 !python src/train_model.py
 
-# 7. Evaluate performance
+# ----------------------------------
+# 8️⃣ Evaluate model & generate plots
+# ----------------------------------
 !python src/evaluate.py
-```
+
 
 ---
 
