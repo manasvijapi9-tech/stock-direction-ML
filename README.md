@@ -1,64 +1,63 @@
 # Stock Direction Prediction using Machine Learning
 
-An end-to-end machine learning pipeline that predicts next-day stock direction (up or down) using technical indicators, classification models, and a fully reproducible workflow.  
-The project includes data collection, cleaning, feature engineering, model training, evaluation, and visualization.
+An end-to-end machine learning pipeline that predicts next-day stock direction (up or down) using technical indicators and supervised learning models.  
+The project demonstrates practical data science skills through structured preprocessing, feature engineering, model training, evaluation, and visualization.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/manasvijapi9-tech/stock-direction-ML/blob/main/stock_direction_pipeline.ipynb)
+[![Open In Colab](https://colab.research.google.com/drive/1NgjGEweKZxWBsfLxaVLWS63ZxTrHAK6x?usp=sharing)
 
 ---
 
 ## 1. Project Overview
 
-This project builds a supervised ML model to predict whether a stock’s closing price will increase the next day.  
-It uses financial technical indicators as features and evaluates both Logistic Regression and Random Forest classifiers.
+This project predicts whether a stock’s closing price will increase the following day.  
+It incorporates technical analysis signals and applies machine learning techniques for binary classification.
 
-The goal is to demonstrate practical understanding of:
-- Time-series preprocessing  
-- Technical indicator engineering  
-- Binary classification for financial prediction  
-- Model evaluation using real market data  
-- Building modular, production-style ML code  
+The workflow demonstrates competency in:
+
+- Financial data preprocessing  
+- Technical indicator computation  
+- Feature and target engineering  
+- Model development (Logistic Regression, Random Forest)  
+- Model evaluation and interpretation  
+- Modular, production-style Python code
 
 ---
 
 ## 2. Project Pipeline
 
-The project follows a clear, structured sequence:
-
 1. **Data Fetching**  
-   - Downloads historical stock data directly from Yahoo Finance.
+   Historical price data is pulled from Yahoo Finance.
 
 2. **Data Cleaning**  
-   - Fixes numeric inconsistencies, removes invalid rows, and formats price data.
+   Handles numeric inconsistencies and invalid rows.
 
 3. **Feature Engineering**  
-   - Computes technical indicators such as RSI, SMA10, SMA20, MACD, and volatility.
+   Computes indicators such as RSI, SMA10, SMA20, MACD, and volatility.
 
 4. **Dataset Preparation**  
-   - Creates feature matrix **X** and binary target variable **y** indicating next-day movement.
+   Creates supervised ML labels (up/down), feature matrix (X), and target vector (y).
 
 5. **Model Training**  
-   - Logistic Regression  
-   - Random Forest Classifier  
-   - Feature importance visualization
+   Trains Logistic Regression and Random Forest classifiers.
 
-6. **Model Evaluation**  
-   - Confusion matrix  
-   - Classification metrics  
-   - Probability distribution analysis
+6. **Evaluation**  
+   Generates a confusion matrix, probability distribution, and classification metrics.
+
+7. **Interpretation**  
+   Produces a feature importance plot to illustrate which technical signals matter most.
 
 ---
 
 ## 3. Visual Results
 
 ### Confusion Matrix
-<img src="plots/confusion_matrix.png" width="420">
+<img src="plots/confusion_matrix.png" width="450">
 
 ### Prediction Probability Distribution
-<img src="plots/probability_distribution.png" width="420">
+<img src="plots/probability_distribution.png" width="450">
 
 ### Feature Importance (Random Forest)
-<img src="plots/feature_importance.png" width="420">
+<img src="plots/feature_importance.png" width="450">
 
 ---
 
@@ -111,18 +110,19 @@ df2.to_csv("data/data_with_indicators.csv", index=False)
 !python src/evaluate.py
 ```
 
-All generated plots are saved in the **plots/** directory.
+Plots generated will be saved in the `plots/` directory.
 
 ---
 
 ## 5. Key Learnings
 
-- Constructing reproducible machine learning pipelines  
-- Handling and preprocessing financial time-series data  
-- Designing target variables for predictive modeling  
-- Evaluating classification models in imbalanced financial settings  
-- Understanding feature importance in Random Forest models  
-- Building modular, maintainable project structure  
+- Construction of an end-to-end ML pipeline  
+- Handling time-series financial data correctly  
+- Designing binary labels for predictive modeling  
+- Training and comparing classification models  
+- Evaluating performance using appropriate visual tools  
+- Identifying informative technical indicators  
+- Maintaining clean and modular project structure  
 
 ---
 
@@ -131,17 +131,17 @@ All generated plots are saved in the **plots/** directory.
 ```
 stock-direction-ML/
 │
-├── data/                   # Raw, cleaned, engineered, and model-ready data
-├── models/                 # Saved ML models
+├── data/                   # Raw, cleaned, and engineered datasets
+├── models/                 # Saved logistic & random forest models
 ├── plots/                  # Confusion matrix, feature importance, probability plot
-├── src/                    # All project scripts
+├── src/                    # Modular pipeline scripts
 │   ├── fetch_data.py
 │   ├── indicators.py
 │   ├── prepare_data.py
 │   ├── train_model.py
 │   └── evaluate.py
 │
-├── stock_direction_pipeline.ipynb   # Full Google Colab notebook
+├── stock_direction_pipeline.ipynb   # Complete Colab notebook
 ├── requirements.txt
 └── README.md
 ```
@@ -151,6 +151,8 @@ stock-direction-ML/
 ## 7. Author
 
 **Manasvi Japi**  
-Aspiring Data Scientist & Quantitative Finance Student  
+Aspiring Data Scientist and Quantitative Finance Student  
 Focused on applied machine learning and financial modeling.
+
+
 
